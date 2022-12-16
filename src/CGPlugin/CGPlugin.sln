@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGPlugin.Models", "CGPlugin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGPlugin.ViewModels", "CGPlugin.ViewModels\CGPlugin.ViewModels.csproj", "{4FF9C5FC-F3E2-4A80-884E-D9F82081B1EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGPlugin.Services", "CGPlugin.Services\CGPlugin.Services.csproj", "{8885AF35-16FC-404A-9577-C05EC0ECA93E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGPlugin.Services", "CGPlugin.Services\CGPlugin.Services.csproj", "{8885AF35-16FC-404A-9577-C05EC0ECA93E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGPlugin.Common", "CGPlugin.Common\CGPlugin.Common.csproj", "{270C5362-8417-4D7C-B27F-75936A543224}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8885AF35-16FC-404A-9577-C05EC0ECA93E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8885AF35-16FC-404A-9577-C05EC0ECA93E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8885AF35-16FC-404A-9577-C05EC0ECA93E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{270C5362-8417-4D7C-B27F-75936A543224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{270C5362-8417-4D7C-B27F-75936A543224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{270C5362-8417-4D7C-B27F-75936A543224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{270C5362-8417-4D7C-B27F-75936A543224}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

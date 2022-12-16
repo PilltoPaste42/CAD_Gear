@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Enums\" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Autodesk.Inventor.Interop">
+      <HintPath>..\CGPlugin.Common\Autodesk.Inventor.Interop.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms">
       <HintPath>..\..\..\..\..\..\..\..\..\Windows\WinSxS\amd64_netfx-system.windows.forms_b03f5f7f11d50a3a_10.0.19041.1_none_6ffddb374fbda91c\System.Windows.Forms.dll</HintPath>
     </Reference>
