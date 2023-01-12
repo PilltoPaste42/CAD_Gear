@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
@@ -19,7 +19,7 @@
       <HintPath>..\CGPlugin.Common\Autodesk.Inventor.Interop.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms">
-      <HintPath>..\..\..\..\..\..\..\..\..\Windows\WinSxS\amd64_netfx-system.windows.forms_b03f5f7f11d50a3a_10.0.19041.1_none_6ffddb374fbda91c\System.Windows.Forms.dll</HintPath>
+      <HintPath>..\CGPlugin.Common\System.Windows.Forms.dll</HintPath>
     </Reference>
   </ItemGroup>
 
