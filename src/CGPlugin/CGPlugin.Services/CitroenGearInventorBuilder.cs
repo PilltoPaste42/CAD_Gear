@@ -19,6 +19,8 @@ public class CitroenGearInventorBuilder : ICADGearBuilder
 
     private PartComponentDefinition PartDefinition { get; set; }
 
+    private PlanarSketch ToothSketch { get; set; }
+
     public CitroenGearModel Gear { get; set; }
 
     public void CreateDocument()
@@ -59,7 +61,7 @@ public class CitroenGearInventorBuilder : ICADGearBuilder
     public void CreateExtra()
     {
         var camera = App.ActiveView.Camera;
-        //camera.ViewOrientationType = ViewOrientationTypeEnum.kIsoTopRightViewOrientation;
+        camera.ViewOrientationType = ViewOrientationTypeEnum.kIsoTopRightViewOrientation;
         
         camera.Fit();
         camera.Apply();
@@ -67,12 +69,34 @@ public class CitroenGearInventorBuilder : ICADGearBuilder
 
     public void CreateGearBody()
     {
-        throw new NotImplementedException();
+        var profile = ToothSketch.Profiles.AddForSolid();
+
+        var extrudeDefinition = PartDefinition.Features.ExtrudeFeatures
+            .CreateExtrudeDefinition(profile, PartFeatureOperationEnum.kJoinOperation);
+        extrudeDefinition.SetDistanceExtent(Gear.Width / 10, PartFeatureExtentDirectionEnum.kPositiveExtentDirection);
+
+        //var objectCollection = App.TransientObjects.CreateObjectCollection();
+        //objectCollection.Add(PartDefinition.Features.ExtrudeFeatures.Add(extrudeDefinition));
+
+        PartDefinition.Features.ExtrudeFeatures.Add(extrudeDefinition);
+
+        ToothSketch.Shared = true;
     }
 
     public void CreateTeeth()
     {
-        throw new NotImplementedException();
+        var sketch = CreateNewSketch(3, Gear.Width / 10);
+
+        //foreach (SketchEntity e in ToothSketch.SketchEntities)
+        //{
+        //    sketch.AddByProjectingEntity(e);
+        //}
+
+        ToothSketch.CopyContentsTo((Sketch)sketch);
+
+        sketch.Solve();
+
+        
     }
 
     private SketchPoint CreatePoint(PlanarSketch sketch, double x = 0, double y = 0)
@@ -131,11 +155,8 @@ public class CitroenGearInventorBuilder : ICADGearBuilder
         };
 
         var sketch = CreateNewSketch(3, 0);
-        
-        var points = sketch.SketchPoints;
-        var circles = sketch.SketchCircles;
-        var lines = sketch.SketchLines;
-        
+        ToothSketch = sketch;
+
         var dCon = sketch.DimensionConstraints;
         var gCon = sketch.GeometricConstraints;
 
